@@ -1,7 +1,5 @@
 package com.core.objects.component;
 
-import com.core.Main;
-import com.core.objects.calendar.component.Day;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;

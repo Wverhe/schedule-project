@@ -12,9 +12,8 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         root = new CalendarFrame();
-
-        primaryStage.setTitle("Calendar Schedule v0.0.1");
-        primaryStage.setScene(new Scene(root, 400, 500));
+        primaryStage.setTitle("Calendar Schedule v0.5.1");
+        primaryStage.setScene(new Scene(root, 500, 400));
         primaryStage.show();
     }
 

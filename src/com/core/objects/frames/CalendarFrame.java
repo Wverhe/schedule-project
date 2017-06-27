@@ -5,14 +5,10 @@ import com.core.objects.calendar.component.Month;
 import com.core.objects.component.CustomButton;
 import com.core.objects.component.CustomGridPane;
 import com.core.objects.component.CustomLabel;
-import javafx.scene.control.Button;
-
 import java.time.LocalDate;
 import java.time.YearMonth;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
 
 /**
  * Created by agaspari on 6/27/2017.
@@ -53,7 +49,6 @@ public class CalendarFrame extends CustomGridPane {
         int yIndex = 2;
 
         for(int i = 0; i < dayButtons.size(); i++){
-            System.out.println("Text: " + dayButtons.get(i).getText());
             int xIndex = dayButtons.get(i).getDay().getDayPos();
             xIndex += startDay;
             if(xIndex > 6){
@@ -62,8 +57,6 @@ public class CalendarFrame extends CustomGridPane {
             if(xIndex % 7 == 0){
                 yIndex++;
             }
-            System.out.println(xIndex + " - " + yIndex);
-            System.out.println("Position: " + dayButtons.get(i).getDay().getDayPos());
             add(dayButtons.get(i), xIndex, yIndex);
         }
     }

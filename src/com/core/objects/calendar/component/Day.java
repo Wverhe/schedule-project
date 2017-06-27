@@ -1,7 +1,5 @@
 package com.core.objects.calendar.component;
 
-import com.core.objects.component.CustomLabel;
-
 /**
  * Created by agaspari on 6/27/2017.
  */

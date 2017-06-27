@@ -8,12 +8,13 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
     private GridPane root;
+
     @Override
     public void start(Stage primaryStage) throws Exception{
-        root = new CalendarFrame(0, 0);
+        root = new CalendarFrame();
 
         primaryStage.setTitle("Calendar Schedule v0.0.1");
-        primaryStage.setScene(new Scene(root, 400, 400));
+        primaryStage.setScene(new Scene(root, 400, 500));
         primaryStage.show();
     }
 

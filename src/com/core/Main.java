@@ -1,6 +1,6 @@
 package com.core;
 
-import com.core.objects.frames.CalendarFrame;
+import com.core.objects.calendar.component.CalendarFrame;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
@@ -14,6 +14,7 @@ public class Main extends Application {
         root = new CalendarFrame();
         primaryStage.setTitle("Calendar Schedule v0.5.1");
         primaryStage.setScene(new Scene(root, 500, 400));
+        primaryStage.setMaximized(true);
         primaryStage.show();
     }
 

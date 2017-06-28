@@ -26,14 +26,14 @@ public class CustomGridPane extends GridPane{
         setStyle("-fx-background-color: #3c3c3c;");
     }
 
-    public void addColumns(int numColumns){
+    protected void addColumns(int numColumns){
         column.setPercentWidth(100/numColumns);
         for(int i = 0; i < numColumns; i++){
             getColumnConstraints().add(column);
         }
     }
 
-    public void addRows(int numRows){
+    protected void addRows(int numRows){
         row.setPercentHeight(100/numRows);
         for(int i = 0; i < numRows; i++){
             getRowConstraints().add(row);

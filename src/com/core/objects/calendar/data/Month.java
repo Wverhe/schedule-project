@@ -1,4 +1,4 @@
-package com.core.objects.calendar.component;
+package com.core.objects.calendar.data;
 
 /**
  * Created by agaspari on 6/27/2017.

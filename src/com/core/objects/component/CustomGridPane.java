@@ -15,6 +15,7 @@ public class CustomGridPane extends GridPane{
     private RowConstraints row;
     public CustomGridPane(){
         super();
+        setGridLinesVisible(false);
         column = new ColumnConstraints();
         column.setHgrow(Priority.ALWAYS);
         row = new RowConstraints();
@@ -26,7 +27,7 @@ public class CustomGridPane extends GridPane{
         setStyle("-fx-background-color: #3c3c3c;");
     }
 
-    protected void addColumns(int numColumns){
+    public void addColumns(int numColumns){
         column.setPercentWidth(100/numColumns);
         for(int i = 0; i < numColumns; i++){
             getColumnConstraints().add(column);

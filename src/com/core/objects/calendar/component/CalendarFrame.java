@@ -2,15 +2,21 @@ package com.core.objects.calendar.component;
 
 import com.core.objects.calendar.component.SelectedDayFrame;
 import com.core.objects.calendar.data.Day;
+import com.core.objects.calendar.data.Delimiter;
 import com.core.objects.calendar.data.Event;
 import com.core.objects.calendar.data.Month;
 import com.core.objects.component.CustomButton;
 import com.core.objects.component.CustomGridPane;
 import com.core.objects.component.CustomLabel;
+import com.sun.corba.se.spi.orbutil.proxy.DelegateInvocationHandlerImpl;
+import javafx.scene.layout.Pane;
+
 import java.time.LocalDate;
 import java.time.YearMonth;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by agaspari on 6/27/2017.
@@ -27,9 +33,14 @@ public class CalendarFrame extends CustomGridPane {
     private int currentMonth, currentYear;
     private SelectedDayFrame selectedFrame;
     int today;
+    Map<String, Event> events;
 
     public CalendarFrame(){
         super();
+        events = new HashMap<String, Event>();
+        events.put("Christmas", new Event("Christmas", "Holiday", 25, 12));
+        events.put("Mothers Day", new Event("Mothers Day", "Mothers Day", new Delimiter(Day.SUNDAY, Month.JUNE, Delimiter.THIRD)));
+
         cal = Calendar.getInstance();
         startMonth = cal.get(Calendar.MONTH);
         startYear = cal.get(Calendar.YEAR);
@@ -87,7 +98,15 @@ public class CalendarFrame extends CustomGridPane {
             CustomButton tempButton = new CustomButton(String.valueOf(i + 1), days[i%7]);
             tempButton.setOnMouseClicked(
                 e -> {
-                    selectedFrame.setCurrentDay(Integer.parseInt(tempButton.getText()), currentMonth, currentYear);
+                    selectedFrame.clear();
+                    selectedFrame.setCurrentDay(Integer.parseInt(tempButton.getText()), currentMonth + 1, currentYear);
+                    for(Event event : events.values()){
+                        if(event.hasDelimiter() && event.getDay() == Integer.parseInt(tempButton.getText()) && event.getMonth() == currentMonth + 1){
+                            selectedFrame.addEvent(event);
+                            break;
+                        }
+                    }
+
                     e.consume();
                 }
             );
